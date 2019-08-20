@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <h1>{{ message }}</h1>
+    <button v-on:click="createPDF()">Create PDF</button>
   </div>
 </template>
 
@@ -8,6 +9,9 @@
 </style>
 
 <script>
+import jsPDF from 'jspdf';
+
+
 export default {
   data: function() {
     return {
@@ -15,6 +19,13 @@ export default {
     };
   },
   created: function() {},
-  methods: {}
+  methods: {
+    createPDF() {
+      let pdfName = 'test'; 
+      var doc = new jsPDF();
+      doc.text("Hello Team", 10, 10);
+      doc.save(pdfName + '.pdf');
+    }
+  }
 };
 </script>
