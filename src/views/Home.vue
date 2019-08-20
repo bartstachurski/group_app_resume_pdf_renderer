@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     <h1>{{ message }}</h1>
-    <button v-on:click="createPDF()">Create PDF</button>
+    <button v-on:click="createPDF()">
+    Create PDF</button>
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 
 <script>
 import jsPDF from 'jspdf';
+import axios from 'axios';
 
 
 export default {
@@ -21,6 +23,7 @@ export default {
   created: function() {},
   methods: {
     createPDF() {
+      axios.get();
       let pdfName = 'test'; 
       var doc = new jsPDF();
       doc.text("Hello Team", 10, 10);
