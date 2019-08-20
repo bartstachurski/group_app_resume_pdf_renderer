@@ -5,7 +5,7 @@
     <button v-on:click="createPDF()">
     Create PDF</button>
   </div>
-  
+
 </template>
 
 <style>
@@ -33,10 +33,22 @@ export default {
     
     };
   },
-  created: function() {},
+  created: function() {
+    axios.get(`/students/:id${this.$route.params.id}`).then(response => {
+      console.log(response.data);
+    });
+    axios.get(`/education/:id${this.$route.params.id}`).then(response => {
+      console.log(response.data);
+    });
+    axios.get(`/experiences/:id${this.$route.params.id}`).then(response => {
+      console.log(response.data);
+    });
+    axios.get(`/capstones/:id${this.$route.params.id}`).then(response => {
+      console.log(response.data);
+    });
+  },
   methods: {
-    createPDF() {
-      axios.get();
+    createPDF() { 
       let pdfName = 'test'; 
       var doc = new jsPDF();
       doc.text(this.first_name + " " + this.last_name, 10, 10);
