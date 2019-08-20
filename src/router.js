@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Home from './views/Home.vue';
 import jsPDF from 'jspdf';
 
+
 Vue.use(Router);
 
 export default new Router({
@@ -14,6 +15,7 @@ export default new Router({
       name: 'home',
       component: Home
     },
+
     {
       path: '/about',
       name: 'about',
