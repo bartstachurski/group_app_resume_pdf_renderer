@@ -20,30 +20,28 @@ export default {
   data: function() {
     return {
       message: "",
-      first_name: "Arzo",
-      last_name: "Thakur",
-      email: "arzo@actualize.com",
-      phone_number: "7089453333",
-      bio: "text",
-      linkedin: "/softwareneginerr",
-      twitter: "www.arzo.com",
-      personal_url: "not yet",
-      resume_url: "indeed resume",
-      github_url: "nonsense"
-    
+      skils: {},
+      students: {},
+      capstones: {},
+      experiences: {},
+      educations: {}
     };
   },
   created: function() {
-    axios.get(`/students/:id${this.$route.params.id}`).then(response => {
+    axios.get(`/students/${this.$route.params.id}`).then(response => { 
+      this.students = response.data.student;
       console.log(response.data);
     });
-    axios.get(`/education/:id${this.$route.params.id}`).then(response => {
+    axios.get(`/educations/${this.$route.params.id}`).then(response => {
+      this.educations = response.data.education;
       console.log(response.data);
     });
-    axios.get(`/experiences/:id${this.$route.params.id}`).then(response => {
+    axios.get(`/experiences/${this.$route.params.id}`).then(response => {
+      this.experiences = response.data.experiences;
       console.log(response.data);
     });
-    axios.get(`/capstones/:id${this.$route.params.id}`).then(response => {
+    axios.get(`/capstones/${this.$route.params.id}`).then(response => {
+      this.capstones = response.data.capstone;
       console.log(response.data);
     });
   },
@@ -59,7 +57,17 @@ export default {
       doc.text(this.personal_url, 10, 60);
       doc.text(this.resume_url, 10, 70);
       doc.text(this.linkedin, 10, 80);
-      doc.text(this.bio, 10, 90);
+      doc.text(this.photo, 10, 90);
+      doc.text(this.name, 10, 90);
+      doc.text(this.start_data, 10, 90);
+      doc.text(this.end_date, 10, 90);
+      doc.text(this.job_title, 10, 90);
+      doc.text(this.company_name, 10, 90);
+      doc.text(this.details, 10, 90);
+      doc.text(this.student_id, 10, 90);
+      doc.text(this.description, 10, 90);
+      doc.text(this.url, 10, 90);
+      doc.text(this.screenshot, 10, 90);
       doc.save(pdfName + '.pdf');
     }
   }
