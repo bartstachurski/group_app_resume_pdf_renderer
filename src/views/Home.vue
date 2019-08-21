@@ -33,19 +33,19 @@ export default {
       console.log(response.data);
     });
     axios.get(`api/educations/${this.$route.params.id}`).then(response => {
-      this.educations = response.data;
+      this.educations = response.data.university;
       console.log(response.data);
     });
     axios.get(`api/experiences/${this.$route.params.id}`).then(response => {
-      this.experiences = response.data;
+      this.experiences = response.data.company_name;
       console.log(response.data);
     });
     axios.get(`api/capstones/${this.$route.params.id}`).then(response => {
-      this.capstones = response.data;
+      this.capstones = response.data.url;
       console.log(response.data);
     });  
     axios.get(`api/skills/${this.$route.params.id}`).then(response => {
-      this.skills = response.data;
+      this.skills = response.data.name;
       console.log(response.data);
     });
   },
@@ -58,6 +58,10 @@ export default {
       // doc.text(this.educations, 10, 30);
       // doc.text(this.experiences, 10, 40);
       doc.text(this.students, 10, 50);
+      doc.text(this.educations, 10, 60);
+      doc.text(this.experiences, 10, 70);
+      doc.text(this.capstones, 10, 80);
+      doc.text(this.skills, 10, 90);
       // doc.text(this.personal_url, 10, 60);
       // doc.text(this.resume_url, 10, 70);
       // doc.text(this.linkedin, 10, 80);
